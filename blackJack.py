@@ -117,3 +117,6 @@ elif 21 - totalMano(manoCasa) < 21 - totalMano(manoJugador):
 elif 21 - totalMano(manoCasa) > 21 - totalMano(manoJugador):
     print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
     print('Tu ganas!');
+
+
+
