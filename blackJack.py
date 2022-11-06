@@ -42,3 +42,14 @@ def totalMano(turno):
                 total += 11;
 # devuelvo el total 
     return total;
+
+
+# creo funcion para mostrar las cartas de cada mano del dealer
+def manoDealer():
+
+    # si el total de cartas que tiene la casa es igual a 2 que muestre solo la primera carta
+    if len(manoCasa) == 2:
+        return manoCasa[0];
+    
+    elif len(manoCasa) > 2:
+        return manoCasa[0], manoCasa[1];
