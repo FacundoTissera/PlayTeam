@@ -86,3 +86,34 @@ while jugador or dealer:
         break;
     elif totalMano(manoCasa) >= 21:
         break;
+
+
+# si jugaror tiene 21 que gane
+if totalMano(manoJugador) == 21:
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('BlackJack!! --> Tu Ganas!');
+
+# si dealer tiene 21 que gane
+elif totalMano(manoCasa) == 21:
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('BlackJack!! --> Dealer Gana!');
+
+# si el total de jugador es mayor a 21 que pierda
+elif totalMano(manoJugador) > 21:
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('Tu pierdes, te pasaste de 21 y el Dealer gana!');
+
+# si el total de dealer es mayor a 21 que pierda
+elif totalMano(manoCasa) > 21:
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('El Dealer se paso de 21, Tu ganas!');
+
+# si el jugador se planta que reste  la mano del dealer menos 21 y si es menor que la del jugador que gane el dealer porque le falta menos para llegar a 21
+elif 21 - totalMano(manoCasa) < 21 - totalMano(manoJugador):
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('Dealer gana!');
+
+# si el jugador se planta que reste  la mano del dealer menos 21 y si es mayor que la del jugador que gane el jugador porque le falta menos para llegar a 21
+elif 21 - totalMano(manoCasa) > 21 - totalMano(manoJugador):
+    print(f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
+    print('Tu ganas!');
