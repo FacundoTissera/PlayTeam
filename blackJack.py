@@ -53,3 +53,36 @@ def manoDealer():
     
     elif len(manoCasa) > 2:
         return manoCasa[0], manoCasa[1];
+
+
+
+# bucle para el juego
+for i in range(2):
+    repartirCartas(manoCasa);
+    repartirCartas(manoJugador);
+
+# print(manoCasa)
+# print(manoJugador)
+
+# mientras que jugador sea verdadero entre al bucle
+while jugador or dealer:
+    print(f'dealer tiene {manoDealer()}  y X');
+    print(f' tu tienes {manoJugador} y el total es {totalMano(manoJugador)}')
+
+    # si el total de la mano del jugador es menor a 21 que le pregunte si quiere otra carta
+    if jugador:
+        plantarseOPedir = input('Quieres otra carta? (y/n) ').lower();
+    
+
+    if totalMano(manoCasa) > 16:
+        dealer = False;
+    else:
+        repartirCartas(manoCasa);
+    if plantarseOPedir == 'n':
+        jugador = False;
+    else:
+        repartirCartas(manoJugador);
+    if totalMano(manoJugador) >= 21:
+        break;
+    elif totalMano(manoCasa) >= 21:
+        break;
