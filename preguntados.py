@@ -3,6 +3,7 @@ import random  # Es una libreria Para dar la sensación de aleatoriedad
 
 import urllib.request #ES UN MODULO DE PYTHON PARA ACCEDER USAR RECURSOS DE INTERNET POR URL
 
+
 # Esto es lo que se conoce como un .tsv, valores separados por tabulaciones y saltos de línea
 textoBaseDePreguntas = ''''''
 filas = []
@@ -12,8 +13,8 @@ try:
     HTTP_response=urllib.request.urlopen(urlBD)
     for line in HTTP_response:#ESTRAEMOS LOS RENGLONES DE NUESTRA BASE DE DATOS EXPORTADA
         filas.append(line.decode("utf-8").replace("\n","").replace("\r",""))#PARA NO AGREGAR LOS RENGLONES VACIOS//UTF-8 es un formato de codificación de caracteres Unicode  Es el responsable de que tu navegador 
-                                                                              #te muestre el contenido del texto correctamente decodificado, sin errores ni caracteres extraños.
-                                                                              #LINE.DECODE es para decodificar cadenas
+                                                                            #te muestre el contenido del texto correctamente decodificado, sin errores ni caracteres extraños.
+                                                                            #LINE.DECODE es para decodificar cadenas
 except:
     print("No hay conexión a internet, no se pudo cargar la BD")
     exit()
@@ -107,6 +108,7 @@ while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
         
         break
     
+<<<<<<< HEAD
     
   
     
@@ -114,3 +116,5 @@ while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
 
 
 
+=======
+>>>>>>> 55c75ca6e014ea31634a3ef8fe9eb332ccf94895
