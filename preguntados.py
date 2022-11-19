@@ -1,5 +1,5 @@
 import os  # Para limpiar la consola se complementa con el metodo de la linea40 
-import random  # Para dar la sensación de aleatoriedad
+import random  # Es una libreria Para dar la sensación de aleatoriedad
 
 import urllib.request #ES UN MODULO DE PYTHON PARA ACCEDER USAR RECURSOS DE INTERNET POR URL
 
@@ -25,7 +25,7 @@ cantidad = len(filas)     # la cantidad de preguntas es igual a la longuitud de 
 
 eleccion = [] #arreglos vacios
 opciones = []
-pregunta = ""
+pregunta = "" #se declara como una varia local con texto vacio y se muestra al imprimir
 respuesta = "" #se declara como variable local vacia
 puntos=0
 incorrectas=0
@@ -33,17 +33,14 @@ incorrectas=0
 for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas, que es igual a las filas del excel)
     if(filas[i] == ""): #la cantidad de filas la obteni de linea 24)
         continue                                         
-    base_preg.append(filas[i].split("\t")) # con esto le decimo s a base de preguntas que es una lista de python para eso es el metodo.append
-                                                    # le pasamos a este metodo append los parametros y se lo pasamos haciendo un split que es otro metodo que devuelve una lista de palabras 
-                                                    #en este caso split devuelve la lista de palabras de filas teniendo en cuenta las tabulaciones)
+    base_preg.append(filas[i].split("\t")) ##
 
 def borrarConsola():
     os.system("cls" if os.name == "nt" else "clear") #va limpiando la consola esta funcion "CLs" os. system es algo que le digo al sistema operativo, en windows usa la funcion clear)
 
 
-def escogerPregunta(n): #hacemos un metodo para escoger la pregunta
-    global opciones, respuesta, pregunta#no existe palabras reservadas para variables locales y globales, para evitar ambiguedades usamos operador global
-
+def elegirpregunta(n):##
+    global opciones, respuesta, pregunta ##
     eleccion = base_preg[n] #escogemos la pregunta n alojada en la base de preguntas
     pregunta = eleccion[0]   #el indice 0 en el excel siempre es la pregunta
     respuesta = eleccion[1] #en el uno siempre esta la respuesta correcta-SIEMPRE,se guardo alli a proposito
@@ -57,12 +54,13 @@ def escogerPregunta(n): #hacemos un metodo para escoger la pregunta
 def mostrarPregunta(): #metodo para mostrar la pregunta
     borrarConsola() #borramos la consola
     print()#salto de linea
-    print(pregunta) #se declara como variable local, es un arreglo vacio, es una sola la pregunta no necesita sea arreglo
+    print(pregunta) 
     print("A)", opciones[0])
     print("B)", opciones[1])
     print("C)", opciones[2])
     print("D)", opciones[3])
     print()
+    
 
 
 def capturarRespuesta(): #capturamos repuesta
@@ -79,9 +77,10 @@ def capturarRespuesta(): #capturamos repuesta
 
 def jugar():
     global incorrectas
-    escogerPregunta(n_pregunta) #es el numero de pregunta que el usuario esta copntestando
+    elegirpregunta(n_pregunta) #es el numero de pregunta que el usuario esta copntestando
     mostrarPregunta()
-    if(n_pregunta==2 or n_pregunta==20 or n_pregunta==30 or n_pregunta==40):    #se agrega este if para ir detectando cuando pasa de una categoria a otra, el avance de categoria
+   
+    if(n_pregunta==10 or n_pregunta==20 or n_pregunta==30 or n_pregunta==40):    #se agrega este if para ir detectando cuando pasa de una categoria a otra, el avance de categoria
           print("ESTA INICIANDO UN NUEVO NIVEL, FELICITACIONES")                    #el avance significa pasar a otra tematica de preguntas 
           input("ENTER PARA RESPONDER SU NUEVO CICLO DE PREGUNTAS")
     
@@ -93,18 +92,13 @@ def jugar():
         print("Su respuesta NO es correcta, la correcta es: "+ respuesta)
         input("ENTER PARA CONTINUAR")
         incorrectas=incorrectas+1
-
+        
+        
 while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
-    try:
-    
+  
      jugar()
-        
-        
-    except:
-        pass
-    n_pregunta += 1
-    
-    if(n_pregunta==cantidad or incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+     n_pregunta += 1  #el contador para que me avance
+     if(n_pregunta==cantidad or incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
         borrarConsola()
         print("GAME OVER")
         
@@ -117,3 +111,6 @@ while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
   
     
     
+
+
+
