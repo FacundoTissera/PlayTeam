@@ -1,0 +1,40 @@
+Algoritmo recup_parc_2
+	Definir dni, digito Como entero
+	Escribir "ingrese su dni "
+	Leer dni
+	digito=dni mod 10
+	Escribir "su dni termina con el digito " digito
+	
+	si dni>10098456 Entonces
+		Repetir
+		Escribir "ERROR 0891: NUMERO NO CORRESPONDIENTE PARA DICHO TRÁMITE "
+		leer dni
+		Hasta Que dni<=10098456 
+	FinSi
+	
+	Segun digito Hacer
+		0:
+			Escribir "fecha de pago: 12 de diciembre "
+			Escribir "En su próx depósito recibirá un aumento del 10%"
+		1:
+			Escribir "fecha de pago: 12 de diciembre "
+		2:
+			Escribir "fecha de pago: lunes 14 de diciembre "
+		3:
+			Escribir "fecha de pago: lunes 14 de diciembre "
+		4:
+			Escribir "fecha de pago: martes 15 de diciembre "
+		5:
+			Escribir "fecha de pago: miercoles 16 de diciembre "
+		6:
+			Escribir "fecha de pago: jueves 17 de diciembre "
+		7:
+			Escribir "fecha de pago: viernes 18 de diciembre "
+		8:
+			Escribir "fecha de pago: sabado 19 de diciembre "
+		9:
+			Escribir "fecha de pago: lunes 21 de diciembre "
+			
+	Fin Segun
+	
+FinAlgoritmo
