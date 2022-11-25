@@ -71,7 +71,7 @@ for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas
         return opcionesVálidas.index(respuestaElegida) #que obtenga el index de la repuesta del usuario
     
     def jugar():
-        global incorrectas
+        global incorrectas, n_pregunta
         elegirpregunta(n_pregunta) #es el numero de pregunta que el usuario esta copntestando
         mostrarPregunta()
         if(n_pregunta==10 or n_pregunta==20 or n_pregunta==30 or n_pregunta==40):    #se agrega este if para ir detectando cuando pasa de una categoria a otra, el avance de categoria
@@ -82,22 +82,25 @@ for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas
               input("ENTER PARA CONTINUAR")
         else:
               print("Su respuesta NO es correcta, la correcta es: "+ respuesta)
+            
               input("ENTER PARA CONTINUAR")
               incorrectas=incorrectas+1
-              
-              
-              
-    
-    while True:
-        try:
-            jugar()
-        except:
-         pass
-        n_pregunta += 1
+      
         if(n_pregunta==50 or incorrectas==3):
             borrarConsola()
             print("El juego ha finalizado")
             input("ENTER PARA CONTINUAR")
+        n_pregunta=1+n_pregunta   
+        
+while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
+    jugar()
+    n_pregunta += 1  #el contador para que me avance
+    if(n_pregunta==cantidad or incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+        borrarConsola()
+        print("GAME OVER")
+        
+        print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
+        
+        print("HASTA PRONTO!!")
         break
-    
     
