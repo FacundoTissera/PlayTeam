@@ -10,7 +10,8 @@ def jugar1():
 filas = [] 
 try:
     urlBD = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQFJzqYgyM-Ra-eWlnJ_74Y8oflnB6ARwStAi4gkXnbj9thKQOs5iVTrKk-u9gBY3TE_jGnF6XqQDo0/pub?output=tsv"
-    HTTP_response=urllib.request.urlopen(urlBD)
+    HTTP_response=urllib.request.urlopen(urlBD)#a traves de la funcion  urlopen del modulo request perteneciente a la libreria  urllib obtengo los recursos de los argumentos que le paso 
+                                                # como parametro en este caso el argumento es la variable URLBD que guarda el enlace con el excel de preguntas
     for line in HTTP_response:#ESTRAEMOS LOS RENGLONES DE NUESTRA BASE DE DATOS EXPORTADA
         filas.append(line.decode("utf-8").replace("\n","").replace("\r",""))#PARA NO AGREGAR LOS RENGLONES VACIOS//UTF-8 es un formato de codificación de caracteres Unicode  Es el responsable de que tu navegador 
                                                                               #te muestre el contenido del texto correctamente decodificado, sin errores ni caracteres extraños.
@@ -38,12 +39,12 @@ for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas
     def borrarConsola():
         os.system("cls" if os.name == "nt" else "clear") #va limpiando la consola esta funcion "CLs" os. system es algo que le digo al sistema operativo, en windows usa la funcion clear)
         
-    def elegirpregunta(n):##
+    def elegirpregunta(n):##funcion  que me guarda en la matriz eleccion[] lo que obtiene de base_preg(n) guarda la pregunta y las cuatros repuestas en eleccion[]
         global opciones, respuesta, pregunta ##
         eleccion = base_preg[n] #escogemos la pregunta n alojada en la base de preguntas
         pregunta = eleccion[0]   #el indice 0 en el excel siempre es la pregunta
         respuesta = eleccion[1] #en el uno siempre esta la respuesta correcta-SIEMPRE,se guardo alli a proposito
-        opciones = eleccion[1:] #las opciones son las que estan desde el indice 1 hasta el final. los dos puntos: hace que vaya hasta el final)
+        opciones = eleccion[1:] #las opciones es una matriz que lleno con los elementos del indice 1 hasta el final. los dos puntos: hace que vaya hasta el final)
         for i in range(4): # como la respuesta correcta siempre esta primera, desorganizamos las respuesta con random, con el for disminuye las posibilidades,recorre 4 opciones
           random.shuffle(opciones)#randomizar todos los items de las opciones
         print(opciones)
@@ -90,17 +91,26 @@ for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas
             borrarConsola()
             print("El juego ha finalizado")
             input("ENTER PARA CONTINUAR")
-        n_pregunta=1+n_pregunta   
+           
         
 while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
     jugar()
     n_pregunta += 1  #el contador para que me avance
-    if(n_pregunta==cantidad or incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+    if(incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
         borrarConsola()
         print("GAME OVER")
+        print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
+        
+        print("HASTA PRONTO!!")
+    if(n_pregunta==cantidad ):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+        borrarConsola()
+        print("Felicitaciones Has completado las 50 preguntas y demostrarte tu gran Saber")
         
         print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
         
         print("HASTA PRONTO!!")
         break
+    
+    
+    
     
