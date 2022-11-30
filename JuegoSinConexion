@@ -1,0 +1,150 @@
+import os  # Para limpiar la consola se complementa con el metodo de la linea40 
+import random  # Es una libreria Para dar la sensación de aleatoriedad
+
+
+
+def jugar1():
+    
+
+ textoBaseDePreguntas = ''''''
+
+filas=['Capital de Colombia\tBogotá\tMedellin\tCali\tBarranquilla', 'Capital de Austria\tViena\tLinz\tGraz\tSaizburgo', 
+ 'Capital de Belgica\tBruselas\tBrujas\tLieja\tAmberes', 
+ 'Capital de Bolivia\tSucre\tCochabamba\tPotosi\tUyuni', 
+ 'Capital de Grecia\tAtenas\tPatras\tNikea\tEl pireo', 
+ '¿Cuantos Oceanos hay en la tierra\tcinco\tseis\tsiete\tocho', 
+ '¿Cual es el Pais mas grande del mundo?\tRusia\tChina\tAustralia\tBrasil', 
+ '¿Cual de estas caracteristicas no pertenece al clima mediterraneo?\tLLuvias abundantes\tVeranos Secos y Calurosos\tVariables temperaturas en Primavera\tTipo de Clima templado', 
+ '¿Con Cuantos Paises Limita Argentina\tTres\tCuatro\tCinco\tSeis',
+ '¿Qué continente es el más poblado?\tAsia\tAmerica\tEuropa\tAfrica', 
+ '¿Cual es la funcion principal del intestino grueso?\tLa absorcion del agua\tLa absorcion de nutrientes\tLa digestion mecanica de los alimentos\tLa digestion quimica de los alimentos',
+ '¿Que hay en la boca del estomago\tEl cardias\tEl piloro\tLos acidos gastricos\tEl epiplon mayor', 
+ '¿Que organo del cuerpo produce la bilis\tHigado\triñon\tPancreas\tIntestinto delgado',
+ '¿cual de los siguientes organos No es parte del sistema inmunologico\tEsofago\tMedula Osea\tBazo\tTimo',
+ '¿Que es el calostro?\tLa primera leche materna\tUna parte del intestino grueso\tUna hormona\tUn hueso de la espina dorsal',
+ '¿Cual es el hueso mas pequeño del cuero\tEl yunque\tLa falange\tEl estribo\tNinguna es correcta', 
+ '¿Donde estan los meniscos?\tLas rodillas\tLos codos\tLa espalda\tLa punta del pie', 
+ '¿En que lugar del cuerpo se produce la insulina\tPancreas\tHiigado\tRiñon\tIntestino', 
+ '¿Que Sustancia libera el Sistema Parasimpatico\tAcetlicolina\tNoradrenalina\tserotonina\tAdrenalina', 
+ '¿Que nombre recibe una persona que no tiene melanina en los melanocitos de su piel?\tAlbina\tDespigmentada\tAmelaninica\tHipomelaninica', 
+ '¿En que año tuvo lugar el atque a Pearl Harbor?\t1941\t1943\t1939\t1938', '¿Cuantos soldados argentinos murieron en la Guerra de malvinas?\t649\t690\t710\t987',
+ '¿Con que emperador estuvo casado Cleopatra?\tTodas son correctas\tPtolomeo\tJulio Cesar\tMarco Antonio', 
+ '¿Que pais fue dirigido por Stalin\tUnion Sovietica\tCuba\tAlemania\tPolonia',
+ '¿Donde surgio la filosofia?\tGrecia\tEspaña\tEgipto\tJapon',
+ '¿Que imperio llego a conquistar casi toda Europa?\tRomano\tCartago\tEspartano\tVikingo',
+ '¿Donde vivia Ana Frank?\tAmsterdan\tViena \tBrujas\tBerlin',
+ '¿En que año viajo el primer hombre a la Luna\t1969\t1969\t1979\t1965',
+ '¿En que año asumio su primer Mandato Juan Domingo Peron?\t1946\t1956\t1943\t1976', 
+ '¿En que año se da inicio a la segunda Guerra mundial?\t1939\t1942\t1945\t1946',
+ '¿Que cantidad expresa el numero Romano V?\tcinco\ttres\tdiez\tuno',
+ '¿Cuantos metros es un hectometro?\t100 metros\t1 metro\t10 metros\t1000 metros',
+ '¿Cual es la unidad de medida de la intensidad de la luz segun el sistema internacional de medidas?\tCandela\tAmperio\tMol\tGrado Kelvin', 
+ '¿Con que simbolo se representa la unidad de tiempo?\ts\tm\tt\tsr', '¿A cuantos metros equivale 0.25 kilometros?\t250 m\t50 m\t2500 m\t25 m', 
+ '¿Cuanto es el 8% de 45?\t3.6\t4.5\t3.2\t4.8', 
+ '¿Al interes se lo define como?\tUtilidad.Ganancia producida\tLa perdida de capital\tEs el monto de la inversion\tSuma de capital inicial y capital final', 
+ '¿Cuantos lados iguales tiene el triangulo isosceles?\tdos\ttres\tuno\tninguno', 
+ '¿Hasta cuantas soluciones puedo encontrar en una ecuacion de segundo grado?\t2\t1\t0\tninguna es correcta',
+ 'En la ecuacion 2x=10 el valor de x es igual a \t5\t4\t2\tninguna es correcta', 
+ '¿Cuantos jugadores componen un equipo de Rugby?\t15\t12\t11\t20',
+ '¿Que pais invento el voleibol?\tEstados Unidos\tFrancia\tGran Bretaña\tRusia',
+ '¿A que barrio porteño pertenece el club de futbol San Lorenzo\tBoedo\tLa boca\tpaternal\tLiniers', 
+ '¿En que año se estreno la pelicula de Disney Pinocho?\t1940\t1950\t1960\t1970', 
+ '¿De que color es la sangre de los peces?\tRoja\tMarron\tVerde\tAzul',
+ '¿De donde se saca la sacarina\tDel Carbon\tAzucar\tAzufre\tAceite girasol',
+ '¿Cuantas caras tiene un icosaedro?\t20\t16\t8\t24', 
+ '¿Que estudia la icitologia?\tLos peces\tLas rocas\tLas erupciones cutaneas\tInsectos',
+ '¿Que es un equino?\tUn caballo\tUna oveja\tUn antilope\tUna vaca', 
+ '¿ que es lo que causa mas furor en internet?\tLos gatos \tLos perros\tLos bebes\tLos gansos']
+
+
+n_pregunta = 0 #es la pregunta que esta contestando el usuario
+
+base_preg = []              #convertimos en un arreglo, donde se representan los datos en una matriz
+cantidad = len(filas)     # la cantidad de preguntas es igual a la longuitud de los renglones de excel)
+
+eleccion = [] #arreglos vacios
+opciones = []
+pregunta = "" #se declara como una varia local con texto vacio y se muestra al imprimir
+respuesta = "" #se declara como variable local vacia
+puntos=0
+incorrectas=0
+for i in range(cantidad): #armamos el for para recorrer la cantidad de preguntas, que es igual a las filas del excel)
+    if(filas[i] == ""): #la cantidad de filas la obteni de linea 24)
+            continue                                         
+    base_preg.append(filas[i].split("\t")) ##
+    
+    
+    def borrarConsola():
+        os.system("cls" if os.name == "nt" else "clear") #va limpiando la consola esta funcion "CLs" os. system es algo que le digo al sistema operativo, en windows usa la funcion clear)
+        
+    def elegirpregunta(n):##funcion  que me guarda en la matriz eleccion[] lo que obtiene de base_preg(n) guarda la pregunta y las cuatros repuestas en eleccion[]
+        global opciones, respuesta, pregunta ##
+        eleccion = base_preg[n] #escogemos la pregunta n alojada en la base de preguntas
+        pregunta = eleccion[0]   #el indice 0 en el excel siempre es la pregunta
+        respuesta = eleccion[1] #en el uno siempre esta la respuesta correcta-SIEMPRE,se guardo alli a proposito
+        opciones = eleccion[1:] #las opciones es una matriz que lleno con los elementos del indice 1 hasta el final. los dos puntos: hace que vaya hasta el final)
+        for i in range(4): # como la respuesta correcta siempre esta primera, desorganizamos las respuesta con random, con el for disminuye las posibilidades,recorre 4 opciones
+          random.shuffle(opciones)#randomizar todos los items de las opciones
+        print(opciones)
+        return eleccion
+
+
+    def mostrarPregunta(): #metodo para mostrar la pregunta
+        borrarConsola() #borramos la consola
+        print()#salto de linea
+        print(pregunta) 
+        print("A)", opciones[0])
+        print("B)", opciones[1])
+        print("C)", opciones[2])
+        print("D)", opciones[3])
+        print()
+    def capturarRespuesta(): #capturamos repuesta
+        respuestaElegida = ""
+        opcionesVálidas = ["a", "b", "c", "d"] #para hacer el if
+        while True:#ciclo indefinidopor si elige alguna opcion que no sea ni a b c o D
+            respuestaElegida= input("ingrese su respuesta > ").lower() #transforma la respuesta en minuscula
+            if not (respuestaElegida in opcionesVálidas):
+                print("La respuesta no está entre las opciones válidas, vuelva a intentarlo")
+                continue
+            break #para que no sea infinito
+        return opcionesVálidas.index(respuestaElegida) #que obtenga el index de la repuesta del usuario
+    
+    def jugar():
+        global incorrectas, n_pregunta
+        elegirpregunta(n_pregunta) #es el numero de pregunta que el usuario esta copntestando
+        mostrarPregunta()
+        if(n_pregunta==10 or n_pregunta==20 or n_pregunta==30 or n_pregunta==40):    #se agrega este if para ir detectando cuando pasa de una categoria a otra, el avance de categoria
+             print("ESTA INICIANDO UN NUEVO NIVEL, FELICITACIONES")                    #el avance significa pasar a otra tematica de preguntas 
+             input("ENTER PARA RESPONDER SU NUEVO CICLO DE PREGUNTAS")
+        if(opciones[capturarRespuesta()]==respuesta):#capturar respuesta es la que capturamos en la linea 68 y la compara con la repuesta correcta determinada en la linea 45"
+              print("Su respuesta es correcta")
+              input("ENTER PARA CONTINUAR")
+        else:
+              print("Su respuesta NO es correcta, la correcta es: "+ respuesta)
+            
+              input("ENTER PARA CONTINUAR")
+              incorrectas=incorrectas+1
+      
+        if(n_pregunta==50 or incorrectas==3):
+            borrarConsola()
+            print("El juego ha finalizado")
+            input("ENTER PARA CONTINUAR")
+           
+        
+while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
+    jugar()
+    n_pregunta += 1  #el contador para que me avance
+    if(incorrectas==3):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+        borrarConsola()
+        print("GAME OVER")
+        print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
+        
+        print("HASTA PRONTO!!")
+    if(n_pregunta==cantidad ):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
+        borrarConsola()
+        print("Felicitaciones Has completado las 50 preguntas y demostrarte tu gran Saber")
+        
+        print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
+        
+        print("HASTA PRONTO!!")
+        break
