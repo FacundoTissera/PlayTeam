@@ -24,8 +24,17 @@ def sigue_el_jugo(sigue_jugando):
             return entrada
         elif sigue_jugando == "9":
             print(f"Usted a finalizado el juego !! \nLa cantidad de respuestas correctas:{resp_correctas}\nLa cantidad de respuestas incorrectas:{resp_incorrectas}".upper())
-            entrada = "1"
-            return entrada
+            jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+            if jugar_de_nuevo == 's':
+                entrada = "0"
+                return entrada
+            else:
+                print("\n")        
+                print("\t\tPresiona enter para volver al menu...")
+                input()
+                from main import menu;
+                menu()  
+                
 
 
 
@@ -536,3 +545,4 @@ while entrada == "0":
                 "¿Desea continuar jugando?\nIngrese \"5\" para continuar o \"9\" para terminar: ".upper())
             sigue_jugando = verificar5o9(sigue_jugando)
             entrada = sigue_el_jugo(sigue_jugando)
+    

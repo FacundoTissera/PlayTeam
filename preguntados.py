@@ -102,15 +102,23 @@ while True: #ES UN WHILE PARA SEGUIR JUGANDO SIEMPRE A EXCEPCION DE"
         print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
         
         print("HASTA PRONTO!!")
+        jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+        if jugar_de_nuevo == 's':
+            jugar1()
+        else:
+            print("\n")        
+            print("\t\tPresiona enter para volver al menu...")
+            input()
+            from main import menu;
+            menu()     
     if(n_pregunta==cantidad ):# SI N_PREGUNTA ES IGUAL A LA CANTIDAD DE PREGUNTAS DE EXCEL O SI LAS INCORRECTAS YA SUMAN 3
         borrarConsola()
+            
         print("Felicitaciones Has completado las 50 preguntas y demostrarte tu gran Saber")
         
         print("GRACIAS POR JUGAR AL PREGUNTADOS- ESTE FUE UN PROYECTO DE PLAYTEAM")
         
         print("HASTA PRONTO!!")
         break
-    
-    
     
     

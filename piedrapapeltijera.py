@@ -66,3 +66,13 @@ def piedraPapelTijera():
 		if cant_perdidas>cant_ganadas:
 			print(f"Usted a perdido el juego, el ordenador a ganado ",{cant_perdidas}," partidas")
 
+		jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+		
+		if jugar_de_nuevo == 's':
+			piedraPapelTijera()
+		else:
+				print("\n")        
+				print("\t\tPresiona enter para volver al menu...")
+				input()
+				from main import menu;
+				menu()  

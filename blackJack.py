@@ -5,13 +5,13 @@ import time
 
 def comenzarJuego():
 
-    print("Bienvenido al juego de BlackJack")
+        print("Bienvenido al juego de BlackJack")
 
-    print("¿Quieres jugar? (y/n)")
+        # print("¿Quieres jugar? (y/n)")
 
-    respuesta = input().lower()
+        # respuesta = input().lower()
 
-    if respuesta == "y":
+        # if respuesta == "y":
 
         print("repartiendo cartas...")
 
@@ -136,13 +136,14 @@ def comenzarJuego():
             print(
                 f'\n Tu tienes {manoJugador} para un total de {totalMano(manoJugador)} y el Dealer tiene {manoCasa} para un total de {totalMano(manoCasa)} \n')
             print('Tu ganas!')
-    else:
-        print('volver al menu? (y/n)')
-        volver = input().lower()
-        if volver == 'y':
-            print('yendo al menu')
+    
+        jugar_de_nuevo = input("Quieres volver a Jugar ? (s/n): ")
+        if jugar_de_nuevo == 's':
+            comenzarJuego()
         else:
-            print('Gracias por jugar!')
-
-
-
+            print("\n")        
+            print("\t\tPresiona enter para volver al menu...")
+            input()
+            from main import menu;
+            menu()  
+        # print('Gracias por jugar!')
